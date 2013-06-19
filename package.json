@@ -1,0 +1,14 @@
+{
+    "name": "morill",
+    "description": "a fresh chart module",
+    "version": "0.1.6",
+    "family": "alipay",
+    "keywords": ["chart"],
+    "spm": {
+        "alias": {
+            "$": "$",
+            "raphael": "gallery/raphael/2.1.0/raphael"
+        },
+        "output": ["morill.js"]
+    }
+}
