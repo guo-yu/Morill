@@ -198,20 +198,18 @@ seajs.use('morill', function($){
 	$(document).ready(function() {
 
 	  	var bardata = [
-		    {x: '2011 第一季度', y: 3, z: 2},
-		    {x: '2011 第二季度', y: 2, z: 8},
-		    {x: '2011 第三季度', y: 3, z: 2},
-		    {x: '2011 第三季度', y: 3, z: 2},
-		    {x: '2011 第三季度', y: 3, z: 2},
-		    {x: '2011 第三季度', y: 3, z: 2},
-		    {x: '2011 第三季度', y: 3, z: 2},
-		    {x: '2011 第三季度', y: 3, z: 2},
-		    {x: '2011 第三季度', y: 3, z: 2},
-		    {x: '2011 第一季度', y: 3, z: 2},
-		    {x: '2011 第一季度', y: 3, z: 2},
-		    {x: '2011 第三季度', y: 3, z: 2},
-		    {x: '2011 第一季度', y: 3, z: 2},
-		    {x: '2011 第四季度', y: 2, z: 4}
+		    {x: '1月', y: 3, z: 2},
+		    {x: '2月', y: 2, z: 8},
+		    {x: '3月', y: 3, z: 2},
+		    {x: '4月', y: 3, z: 2},
+		    {x: '5月', y: 3, z: 2},
+		    {x: '6月', y: 3, z: 2},
+		    {x: '7月', y: 3, z: 2},
+		    {x: '8月', y: 3, z: 2},
+		    {x: '9月', y: 3, z: 2},
+		    {x: '10月', y: 3, z: 2},
+		    {x: '11月', y: 3, z: 2},
+		    {x: '12月', y: 3, z: 2}
 		];
 
 		// 初始化图表
@@ -234,7 +232,7 @@ seajs.use('morill', function($){
 ````
 
 ## 折线图表范例：
-<div id="LineChart" style="width: 500px;height:300px;"></div>
+<div id="LineChart" style="width: 460px;height:300px;"></div>
 
 ````javascript
 seajs.use('morill', function($){
@@ -272,21 +270,34 @@ seajs.use('morill', function($){
 		  {"period": "2012 W01", "licensed": 1732, "sorned": null}
 		];
 
+		var bardata = [
+		    {x: '1月', y: 3, z: 2},
+		    {x: '2月', y: 2, z: 8},
+		    {x: '3月', y: 3, z: 2},
+		    {x: '4月', y: 3, z: 2},
+		    {x: '5月', y: 3, z: 2},
+		    {x: '6月', y: 3, z: 2},
+		    {x: '7月', y: 3, z: 2},
+		    {x: '8月', y: 3, z: 2},
+		    {x: '9月', y: 3, z: 2},
+		    {x: '10月', y: 3, z: 2},
+		    {x: '11月', y: 3, z: 2},
+		    {x: '12月', y: 3, z: 2}
+		];
+
 		// 初始化图表
 		var line = $('#LineChart').Morill({
 			type: 'line',
-			data: linedata.reverse(),
-			x:'period',
-			order: ['licensed', 'sorned'],
+			data: bardata,
+			x:'x',
+			order: ['y', 'z'],
 	  		labels: ['Licensed', 'SORN'],
-	  		events: [
-			    '2012-05',
-			    '2012-03'
-			],
-			goals: [2000],
+	  		
 			smooth: false,
 			backGrid: true,
-			axesX: false,
+			yUnit: '1212',
+			parseTime: false,
+			xStep: 1,	
 	  		tip: function(index,data) {
 	  			return '<div class="custom-pop">这是一个callback，你点的是第' + index + '个，元数据是：' + data[index].licensed + ' 和 ' + data[index].sorned + '</div>';
 	  		}
